@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProjectTwo</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./fonts/css/all.min.css">
+</head>
+<body>
+    
+    <div class="main">
+        <div class="box">
+            <button class="btn btn-1">Show All</button>
+            <button class="btn btn-2">Hide All</button>
+            <p>List - 0</p>
+            <p>List - 1</p>
+            <p>List - 2</p>
+            <p>List - 3</p>
+            <p>List - 4</p>
+            <p>List - 5</p>
+            <p>List - 6</p>
+            <h4 id="head">Hello Test</h4>
+        </div>
+    
+    <div class="counter">
+        <h1 class="null"></h1>
+        <button class=" btn btn-3">+</button>
+        <button class=" btn btn-4">-</button>
+        <button class=" btn btn-5">Reset</button>
+        <h1 class="count">0</h1>
+    </div>
+    <div class="counter-2">
+        <button class="btn btn-6">Start</button>
+        <button class="btn btn-7">Stop</button>
+        <button class="btn btn-8">Reset</button>
+        <h1 class="count-1">0</h1>
+    </div>
+    </div>
+
+<script src="./js/jquery-3.6.0.min.js"></script>
+<script>
+    // =============== Part-1 ================//
+$('p, #head').click(function(){
+    $(this).slideUp(1500);
+});
+
+$('.btn-1').click(function(){
+    $('p, #head').slideDown(1500);
+});
+$('.btn-2').click(function(){
+    $('p').slideToggle(1500);
+});
+//================== part-2 ===================// 
+$('.null').html('I am ' + 26 + ' Years Old.');
+
+//================== part-3 ===================//
+let num=1;
+$('.btn-3').click(function(){
+    num++;
+    $('.count').text(num);
+});
+$('.btn-4').click(function(){
+    num--;
+    $('.count').text(num);
+    
+});
+// let reset=0;
+$('.btn-5').click(function(){
+    num = 0;
+    $('.count').text(num);
+});
+//================== Part-4 ==============//
+
+let count= 1;
+let stop; // Stop korar jonne
+// $('.btn-6').click(function(){
+//     setInterval(function(){
+//         $('.count-1').html(count);
+//         count++;
+//     },1000)
+
+$('.btn-6').click(function(){
+    stop = setInterval(function(){
+        $('.count-1').html(count);
+        count++;
+    },1000);
+});
+$('.btn-7').click(function(){
+          clearInterval(stop);
+});
+$('.btn-8').click(function(){
+    count = 0;
+   $('.count-1').html(count);
+   clearInterval(stop);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
